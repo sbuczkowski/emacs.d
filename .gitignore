@@ -1,0 +1,15 @@
+.org-id-locations*
+SessionDesktop.el
+auto-save-list/
+bookmarks
+dotemacs/
+elisp/
+elpa/
+eshell/
+history
+network-security.data
+org-clock-save.el
+srecode-map.el
+tramp
+transient/
+url/
