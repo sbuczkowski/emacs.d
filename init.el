@@ -108,6 +108,7 @@
 
 ;; === Programming & Coding Functions ===
 (load-file "~/.emacs.d/config/init-org.el")
+(load-file "~/.emacs.d/config/init-magit.el")
 (load-file "~/.emacs.d/config/init-coding-julia.el")
 (load-file "~/.emacs.d/config/init-tramp.el")
 (load-file "~/.emacs.d/config/init-coding-matlab.el")
