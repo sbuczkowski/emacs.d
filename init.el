@@ -4,10 +4,25 @@
 ;; Enable transient mark mode
 (transient-mark-mode 1)
 
-;; This is only needed once, near the top of the file
+;; Install use-package if necessary
+(require 'package)
+(setq package-enable-at-startup nil)
+(setq package-archives (append package-archives
+			 '(("melpa" . "http://melpa.org/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/"))))
+(package-initialize)
+
+;; Bootstrap `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package diminish :ensure t)
+
+;; Enable use-package
 (eval-when-compile
-  ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  (add-to-list 'load-path "/Users/steven/.emacs.d/elpa/use-package-20221209.2013")
+  ;; load-path needed if using externally built use-package
+  ;;(add-to-list 'load-path "/Users/steven/.emacs.d/elpa/use-package-20221209.2013")
   (require 'use-package))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
