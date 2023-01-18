@@ -1,8 +1,14 @@
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t)
 
+;; move customization variables out of init.el
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+      
 ;; Enable transient mark mode
 (transient-mark-mode 1)
+
+(load-theme 'tango-dark t)
+(set-face-attribute'default nil :height 200)
 
 ;; Install use-package if necessary
 (require 'package)
@@ -11,19 +17,22 @@
 			 '(("melpa" . "http://melpa.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/"))))
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package diminish :ensure t)
-
 ;; Enable use-package
 (eval-when-compile
   ;; load-path needed if using externally built use-package
   ;;(add-to-list 'load-path "/Users/steven/.emacs.d/elpa/use-package-20221209.2013")
   (require 'use-package))
+
+(use-package diminish :ensure t)
+
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
