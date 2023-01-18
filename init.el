@@ -100,6 +100,9 @@
   ;; enabled right away. Note that this forces loading the package.
   (marginalia-mode))
 
+(use-package consult
+  :ensure t)
+
 (use-package embark
   :ensure t
 
