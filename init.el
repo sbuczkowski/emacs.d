@@ -7,9 +7,6 @@
 ;; Enable transient mark mode
 (transient-mark-mode 1)
 
-(load-theme 'tango-dark t)
-(set-face-attribute'default nil :height 200)
-
 ;; Install use-package if necessary
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -33,6 +30,13 @@
 
 (use-package diminish :ensure t)
 
+:;; uncomment below to use theme packages
+;; (use-package afternoon-theme
+;; :ensure t
+;; :config
+;; (load-theme 'afternoon t))
+(load-theme 'tango-dark t)
+(set-face-attribute'default nil :height 200)
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
