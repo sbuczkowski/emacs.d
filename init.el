@@ -7,6 +7,9 @@
 ;; Enable transient mark mode
 (transient-mark-mode 1)
 
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+
 ;; Install use-package if necessary
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -46,20 +49,7 @@
 ;; Enable vertico
 (use-package vertico
   :init
-  (vertico-mode)
-
-  ;; Different scroll margin
-  ;; (setq vertico-scroll-margin 0)
-
-  ;; Show more candidates
-  ;; (setq vertico-count 20)
-
-  ;; Grow and shrink the Vertico minibuffer
-  ;; (setq vertico-resize t)
-
-  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  ;; (setq vertico-cycle t)
-  )
+  (vertico-mode))
 
 ;; A few more useful configurations...
 (use-package emacs
@@ -103,6 +93,23 @@
   ;; Must be in the :init section of use-package such that the mode gets
   ;; enabled right away. Note that this forces loading the package.
   (marginalia-mode))
+
+(use-package treemacs
+  :ensure t)
+
+(use-package winum
+  :ensure t
+  :config
+  (global-set-key (kbd "M-0") 'treemacs-select-window)
+  (global-set-key (kbd "M-1") 'winum-select-window-1)
+  (global-set-key (kbd "M-2") 'winum-select-window-2)
+  (global-set-key (kbd "M-3") 'winum-select-window-3)
+  (global-set-key (kbd "M-4") 'winum-select-window-4)
+  (global-set-key (kbd "M-5") 'winum-select-window-5)
+  (global-set-key (kbd "M-6") 'winum-select-window-6)
+  (global-set-key (kbd "M-7") 'winum-select-window-7)
+  (global-set-key (kbd "M-8") 'winum-select-window-8)
+  (winum-mode))
 
 (use-package consult
   :ensure t)
