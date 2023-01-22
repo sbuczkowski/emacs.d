@@ -1,9 +1,6 @@
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t)
 
-;; move customization variables out of init.el
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-      
 ;; Enable transient mark mode
 (transient-mark-mode 1)
 
@@ -13,9 +10,10 @@
 ;; Install use-package if necessary
 (require 'package)
 (setq package-enable-at-startup nil)
+;; add MELPA for packages
 (setq package-archives (append package-archives
-			 '(("melpa" . "http://melpa.org/packages/")
-			 ("gnu" . "http://elpa.gnu.org/packages/"))))
+			 '(("melpa" . "http://melpa.org/packages/"))))
+			 
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -143,6 +141,13 @@
 
 (use-package vterm
   :ensure t)
+
+;; move customization variables out of init.el
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file t)
+
+(setq backup-directory-alist
+      '(("." . "~/emacs.d/backups")))
 
 ;; === Programming & Coding Functions ===
 (load-file "~/.emacs.d/config/init-org.el")

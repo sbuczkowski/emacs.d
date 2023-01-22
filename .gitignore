@@ -1,5 +1,6 @@
 *~
 .cache/
+backups
 custom.el
 .org-id-locations*
 SessionDesktop.el
