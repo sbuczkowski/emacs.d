@@ -146,8 +146,17 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file t)
 
+;; move backup files to common location
 (setq backup-directory-alist
       '(("." . "~/emacs.d/backups")))
+
+;; show matching parentheses
+(setq show-paren-mode 1)
+
+;; bookmarks
+(setq bookmark-default-file "~/.emacs.d/bookmarks")
+;; save bookmarks when modified
+(setq bookmark-save-flag 1)
 
 ;; === Programming & Coding Functions ===
 (load-file "~/.emacs.d/config/init-org.el")

@@ -22,6 +22,10 @@
 (setq org-habit-preceding-days 8)
 (setq org-habit-following-days 4)
 
+;; org chef (for recipes)
+(use-package org-chef
+  :ensure t)
+
 ;; org agenda
 (setq org-agenda-start-with-follow-mode t)
 (setq org-agenda-files (list "~/org/current/Me.org" "~/org/current/UMBC.org" "~/org/current/Animals.org"))
@@ -47,7 +51,12 @@
  '(("t" "Todo" entry (file+headline "~/org/current/Refile.org" "Tasks")
         "* TODO %?\n %i\n")
    ("j" "Journal" entry (file+datetree "~/org/current/Journal.org")
-        "* %?\nEntered on %U\n %i\n")))
+        "* %?\nEntered on %U\n %i\n")
+   ("c" "Cookbook" entry (file "~/org/cookbook.org")
+    "%(org-chef-get-recipe-from-url)"
+    :empty-lines 1)
+   ("m" "Manual Cookbook" entry (file "~/org/cookbook.org")
+    "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")))
 
 ;;; refile targets
 (setq org-refile-targets (quote ((org-agenda-files :maxlevel . 9))))
