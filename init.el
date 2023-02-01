@@ -1,3 +1,6 @@
+;; start server mode
+(server-start)
+
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t)
 
