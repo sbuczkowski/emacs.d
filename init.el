@@ -38,8 +38,11 @@
 ;; (use-package afternoon-theme
 ;; :ensure t
 ;; :config
-;; (load-theme 'afternoon t))
 (load-theme 'tango-dark t)
+;; if on AWS, load afternoon theme
+(cond
+ ((string-equal user-login-name "ec2-user")
+  (load-theme 'afternoon t)))
 (set-face-attribute'default nil :height 200)
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
