@@ -81,6 +81,7 @@
 
   ;; Optionally use the `orderless' completion style.
 (use-package orderless
+  :ensure t
   :init
   ;; Configure a custom style dispatcher (see the Consult wiki)
   ;; (setq orderless-style-dispatchers '(+orderless-dispatch)
