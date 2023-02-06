@@ -50,11 +50,11 @@
   :init
   (savehist-mode))
 
-;; set up xclip (clipboard cut/paste)
-(use-package xclip
-  :ensure t
-  :init
-  (xclip-mode 1))
+;; ;; set up xclip (clipboard cut/paste)
+;; (use-package xclip
+;;   :ensure t
+;;   :init
+;;   (xclip-mode 1))
 
 ;; Enable vertico
 (use-package vertico
