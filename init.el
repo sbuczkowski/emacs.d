@@ -52,16 +52,19 @@
 
 ;; set up xclip (clipboard cut/paste)
 (use-package xclip
+  :ensure t
   :init
   (xclip-mode 1))
 
 ;; Enable vertico
 (use-package vertico
+  :ensure t
   :init
   (vertico-mode))
 
 ;; A few more useful configurations...
 (use-package emacs
+  :ensure t
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
@@ -92,6 +95,7 @@
 
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia
+  :ensure t
   ;; Either bind `marginalia-cycle' globally or only in the minibuffer
   :bind (("M-A" . marginalia-cycle)
          :map minibuffer-local-map
@@ -175,6 +179,9 @@
 (load-file "~/.emacs.d/config/init-magit.el")
 (load-file "~/.emacs.d/config/init-coding-julia.el")
 (load-file "~/.emacs.d/config/init-tramp.el")
-(load-file "~/.emacs.d/config/init-coding-matlab.el")
 (load-file "~/.emacs.d/config/init-yasnippets.el")
+;; load matlab environment setup only if on UMBC cluster
+(cond
+ ((string-equal system-name "strow-interact.cm.cluster")
+  (load-file "~/.emacs.d/config/init-coding-matlab.el")))
 
